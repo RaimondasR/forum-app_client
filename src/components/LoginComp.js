@@ -8,14 +8,14 @@ const LoginComp = () => {
   const {getUser, setUser} = useContext(UserContext);
 
   const refs = {
-    username: useRef(),
-    password: useRef(),
+    usernameRef: useRef(),
+    passwordRef: useRef(),
   }
 
   async function loginUser() {
     const user = {
-        username: refs.username.current.value,
-        password: refs.password.current.value,
+        username: refs.usernameRef.current.value,
+        password: refs.passwordRef.current.value,
     }
 
     const options = {
@@ -32,12 +32,12 @@ const LoginComp = () => {
 
     {/* if user login is successfull (error=false) then we store user's secret key value to local storage  */}
     if(!data.error) {
+      console.log("success: user login all good");
       console.log("data :",data);
       setUser(data.user);
       localStorage.setItem('secret', data.secret);
       console.log("user.username :",user.username);
-      console.log("user :", user)
-      nav("/main");
+      nav("/home");
     }
 
     console.log(data);
@@ -47,9 +47,9 @@ const LoginComp = () => {
     <div className="d-flex column a-center">
 
       <div className="d-flex row center a-flex-end"> 
-        <div className=""><h1  className="mb15">eBiden</h1></div>   
-        <div className="ml50 mr50"><h3>auction-app</h3></div>   
-        <div className="m0"><h3>LOGIN Page</h3></div>
+      <div className=""><h1  className="mb15">stocKINGS forums</h1></div> 
+        <div className="ml50 mr50"><h3>forum-app</h3></div>   
+        <div className="m0"><h3>Login page</h3></div>
       </div>
   
       <div className="login-div column grow1">
@@ -59,10 +59,10 @@ const LoginComp = () => {
         <div className="txt-left">to your account</div>
         <div className="flex column a-center">
           <div className="flex center mt20">
-            <input className="inp" type="text" ref={refs.username}  placeholder="Username" />
+            <input className="inp" type="text" ref={refs.usernameRef}  placeholder="Username" />
           </div>
           <div className="flex center mt20">
-            <input className="inp" type="text" ref={refs.password}  placeholder="Password" />
+            <input className="inp" type="text" ref={refs.passwordRef}  placeholder="Password" />
           </div>      
           <div className="flex center mt40">
             <button onClick={loginUser}>Login</button>

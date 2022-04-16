@@ -7,16 +7,18 @@ const RegisterComp = () => {
   const nav = useNavigate();  
   const {getUser, setUser} = useContext(UserContext);
   const refs = {
-      username: useRef(),
-      password1: useRef(),
-      password2: useRef(),        
+      usernameRef: useRef(),
+      emailRef: useRef(),
+      password1Ref: useRef(),
+      password2Ref: useRef(),        
   }
 
   async function registerUser() {
     const user = {
-        username: refs.username.current.value,
-        password1: refs.password1.current.value,
-        password2: refs.password2.current.value,          
+        username: refs.usernameRef.current.value,
+        email: refs.emailRef.current.value,
+        password1: refs.password1Ref.current.value,
+        password2: refs.password2Ref.current.value,          
     }
             
     const options = {
@@ -32,13 +34,14 @@ const RegisterComp = () => {
       const data = await res.json();
       // if user registration is succsessful then switch to user login page
       if(!data.error) {
+        console.log("success: user registration all good");
         setUser(user.username);
         console.log("data :",data);
         console.log("user.username :",user.username);
         console.log("getUser :",getUser);
         console.log("user :", user)
         nav("/login");
-      } else console.log("error: bad password");
+      } else console.log("error: user registration bad credentials");
   } // end of function registerUser()
 
   return (
@@ -46,7 +49,7 @@ const RegisterComp = () => {
       <div className="d-flex row center a-flex-end">          
         <div className=""><h1  className="mb15">eBiden</h1></div>   
         <div className="ml50 mr50"><h3>auction-app</h3></div>     
-        <div className="m0"><h3>REGISTER Page</h3></div>
+        <div className="m0"><h3>Register Page</h3></div>
       </div>
 
       <div className="register-div column grow1">
@@ -56,18 +59,21 @@ const RegisterComp = () => {
         <div className="txt-left">new user</div>
         <div className="flex column a-center">
           <div className="flex center mt20">
-            <input className="inp" type="text" ref={refs.username}  placeholder="Username" />
+            <input className="inp" type="text" ref={refs.usernameRef}  placeholder="* Display Name" />
           </div>
           <div className="flex center mt20">
-            <input className="inp" type="text" ref={refs.password1}  placeholder="Password1" />
+            <input className="inp" type="text" ref={refs.emailRef}  placeholder="* Email Address" />
           </div>
           <div className="flex center mt20">
-            <input className="inp" type="text" ref={refs.password2}  placeholder="Password2" />
+            <input className="inp" type="text" ref={refs.password1Ref}  placeholder="* Password1" />
+          </div>
+          <div className="flex center mt20">
+            <input className="inp" type="text" ref={refs.password2Ref}  placeholder="* Confirm Password" />
           </div>      
           <div className="flex center mt40">
-            <button onClick={registerUser}>Create account</button>
+            <button onClick={registerUser}>Create my Account</button>
           </div>
-          <div className="txt-center mt50">Already have an account? <b><Link to="/login">Sign In</Link></b></div>
+          <div className="txt-center mt50">Existing user? <b><Link to="/login">Sign In</Link></b></div>
         </div>
       </div>
     </div>                 
