@@ -32,7 +32,7 @@ const CreateTopicComp = () => {
     if (!data.error) {
       console.log("success: new forum topic is created");
       console.log("data :", data);
-      setAuctions(data.topic);
+      setTopic(data.topic);
     } else {
       console.log("error: forum topic is not created");
       console.log("data :", data);

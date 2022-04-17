@@ -11,7 +11,7 @@ const Toolbar = () => {
   const nav = useNavigate();  
 
   function SignOutUser() {
-    nav("/start");
+    nav("/home");
     setUser(null);
     
   }
@@ -19,16 +19,15 @@ const Toolbar = () => {
   return (
     <div className="Toolbar d-flex row">
         {/* if user neither registered, nor logged in, then "login" and "register" links are shown */}
-        {(!getUser && location.pathname !=="/login") && <Link to="/login">Login</Link>}
-        {(!getUser && location.pathname !=="/register") && <Link to="/register">Register</Link>}            
-        {(getUser && location.pathname !=="/create-auction") && <Link to="/create-auction">Create Auction</Link>}
-        {location.pathname !=="/all-auctions" && <Link to="/all-auctions">All Auctions</Link>}
-        {location.pathname !=="/main" && <Link to="/main">Main Page</Link>}
+        {(!getUser && location.pathname !=="/login") && <Link to="/login">Existing user? Sign In</Link>}
+        {(!getUser && location.pathname !=="/register") && <Link to="/register">Sign Up</Link>}   
+        {location.pathname !=="/home" && <Link to="/home">Home</Link>}         
+        {(getUser && location.pathname !=="/create-topic") && <Link to="/create-topic">Start new topic</Link>}
+        {location.pathname !=="/all-topics" && <Link to="/all-topics">Topics</Link>}
+        
         {getUser && 
           <div className="userStats d-flex row">
-            <div className="mr40">Username: {getUser.username}            
-            </div>
-            <div className="mr40">money: {getUser.money}            
+            <div className="mr40">Username: {/*getUser.username*/}            
             </div>
             <div onClick={SignOutUser}>Sign Out {/* setUser(null) */}
             </div>

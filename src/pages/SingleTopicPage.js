@@ -11,7 +11,7 @@ const SingleTopicPage = () => {
     fetch("http://localhost:4000/topic/" + url) 
       .then(res => res.json())
       .then(data => {
-          setAuction("data.topic",data.topic);
+          setTopic("data.topic",data.topic);
           console.log("data : topic/url : single topic", data);
       }) 
   }, []);

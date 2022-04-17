@@ -6,6 +6,7 @@ import { UserContext } from './context/UserContext';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import MainPage from './pages/MainPage';
+import MyAccountPage from './pages/MyAccountPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import CreateTopicPage from './pages/CreateTopicPage';
@@ -20,7 +21,7 @@ function App() {
   return (
     <div className="App">
       <UserContext.Provider value={{getUser, setUser}}>  
-        <MainContext.Provider value={{getTopic, setTopics}}>  
+        <MainContext.Provider value={{getTopic, setTopic}}>  
           <BrowserRouter> 
             <Toolbar/>       
             <Routes>
