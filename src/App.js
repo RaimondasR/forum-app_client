@@ -17,6 +17,9 @@ import SingleTopicPage from './pages/SingleTopicPage';
 function App() {
   const [getUser, setUser] = useState(null);
   const [getTopic, setTopic] = useState([]);
+  const [getLoggedInUser, setLoggedInUser] = useState(null);
+  const [getFavorTopicCount, setFavorTopicCount] = useState(null);
+  const [getNotifiedCount, setNotifiedCount] = useState(0);
 
   return (
     <div className="App">

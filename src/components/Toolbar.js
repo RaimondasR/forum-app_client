@@ -19,8 +19,8 @@ const Toolbar = () => {
   return (
     <div className="Toolbar d-flex row">
         {/* if user neither registered, nor logged in, then "login" and "register" links are shown */}
-        {(!getUser && location.pathname !=="/login") && <Link to="/login">Existing user? Sign In</Link>}
-        {(!getUser && location.pathname !=="/register") && <Link to="/register">Sign Up</Link>}   
+        {(!getUser && location.pathname !=="/login") && <Link to="/login">Sign In</Link>}
+        {(!getUser && location.pathname !=="/register") && <Link to="/register">New User? Sign Up</Link>}   
         {location.pathname !=="/home" && <Link to="/home">Home</Link>}         
         {(getUser && location.pathname !=="/create-topic") && <Link to="/create-topic">Start new topic</Link>}
         {location.pathname !=="/all-topics" && <Link to="/all-topics">Topics</Link>}
