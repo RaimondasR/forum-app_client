@@ -6,7 +6,7 @@
   text-align: center;
   background-color: lightsteelblue;
   min-height: 950px;
-  padding: 20px;
+  padding: 20px 0;
   background-image: url("./img/img_Forum_romanum_2560px_6k_5760x2097.jpg");
   background-repeat: no-repeat;
   background-position: center center;
@@ -18,19 +18,19 @@
   margin-bottom: 20px;
 }
 
-.Toolbar {
+.ToolbarComp {
   display: flex;
   justify-content: space-around;
   padding: 10px;
-  width: 95%;
+  width: 100%;
   background-color:lightskyblue;
-  border-radius: 14px;
-  box-shadow: 4px 4px lightseagreen;
+  box-shadow: 0 4px lightseagreen;
   font-size: 22px;
 }
 
-.Toolbar Link {
-  color: red;
+.LoginPage {
+  width: 100%;
+  /* opacity: 0.75; */
 }
 
 .userStats {
@@ -38,14 +38,12 @@
   justify-content: space-between;
 }
 
-
 .login-div {
-  height: 500px;
-  max-width: 340px;
+  /* min-width: 1480px; */
+  min-width: 100%;
   background-color: whitesmoke;
   margin:30px; 
-  border-radius: 14px;
-  box-shadow: 4px 4px lightseagreen;
+  box-shadow: 0 4px lightseagreen;
   padding: 20px;
 }
 

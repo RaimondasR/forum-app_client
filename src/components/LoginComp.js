@@ -1,10 +1,13 @@
-import React, { useRef, useContext } from 'react';
+import React, { useRef, useState, useContext } from 'react';
 import { UserContext } from '../context/UserContext';
+import { MainContext } from '../context/MainContext';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 const LoginComp = () => {
   const nav = useNavigate();  
+  const [getMessage, setMessage] = useState(null);
+  const {setLoggedInUser, setNotifiedCount} = useContext(MainContext);
   const {getUser, setUser} = useContext(UserContext);
 
   const refs = {
@@ -30,6 +33,7 @@ const LoginComp = () => {
     const res = await fetch("http://localhost:4000/login", options);
     const data = await res.json();
 
+
     {/* if user login is successfull (error=false) then we store user's secret key value to local storage  */}
     if(!data.error) {
       console.log("success: user login all good");
@@ -39,20 +43,19 @@ const LoginComp = () => {
       console.log("user.username :",user.username);
       nav("/home");
     }
-
     console.log(data);
   }
 
   return (
-    <div className="d-flex column a-center">
+    <div className="LoginComp d-flex column a-center">
 
       <div className="d-flex row center a-flex-end"> 
-        <div className=""><h1  className="mb15">stocKINGS forums</h1></div> 
+        <div className=""><h1  className="mb15">STOCK KINGS forums</h1></div> 
         <div className="ml50 mr50"><h3>forum-app</h3></div>   
-        <div className="m0"><h3>Login page</h3></div>
+        <div className="m0"><h3>Sign In | Login page</h3></div>
       </div>
   
-      <div className="login-div column grow1">
+      <div className="login-div column">
         <div className="txt-left"><h2>Login</h2></div>
         <div className="txt-left">Welcome back,</div>
         <div className="txt-left">please login</div>

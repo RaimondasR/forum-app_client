@@ -3,7 +3,7 @@ import LoginComp from '../components/LoginComp';
 
 const LoginPage = () => {
   return (
-    <div>
+    <div className='LoginPage'>
       <LoginComp />
     </div>
   )
