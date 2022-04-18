@@ -49,29 +49,27 @@ const LoginComp = () => {
   return (
     <div className="LoginComp d-flex column a-center">
 
-      <div className="d-flex row center a-flex-end"> 
+      <div className="d-flex row center  a-flex-end"> 
         <div className=""><h1  className="mb15">STOCK KINGS forums</h1></div> 
         <div className="ml50 mr50"><h3>forum-app</h3></div>   
-        <div className="m0"><h3>Sign In | Login page</h3></div>
       </div>
   
       <div className="login-div column">
-        <div className="txt-left"><h2>Login</h2></div>
-        <div className="txt-left">Welcome back,</div>
-        <div className="txt-left">please login</div>
-        <div className="txt-left">to your account</div>
-        <div className="flex column a-center">
+        
+          <div ><h2>Login</h2></div>        
+      
+          <div className="txt-center mt50">Log in to STOCK KINGS or <b><Link to="/register">create an account</Link></b>
+          </div>
           <div className="flex center mt20">
-            <input className="inp" type="text" ref={refs.usernameRef}  placeholder="Username" />
+            <input className="inp" type="text" ref={refs.usernameRef}  placeholder="Display Name" />
           </div>
           <div className="flex center mt20">
             <input className="inp" type="text" ref={refs.passwordRef}  placeholder="Password" />
           </div>      
           <div className="flex center mt40">
-            <button onClick={loginUser}>Login</button>
+            <button onClick={loginUser}>Continue</button>
           </div>
-          <div className="txt-center mt50">Don't have an account? <b><Link to="/register">Sign Up</Link></b></div>
-        </div>
+
       </div>
     
     </div>                

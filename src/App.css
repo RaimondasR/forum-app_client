@@ -29,7 +29,7 @@
 }
 
 .LoginPage {
-  width: 100%;
+  min-width: 100%;
   /* opacity: 0.75; */
 }
 
@@ -42,13 +42,13 @@
   /* min-width: 1480px; */
   min-width: 100%;
   background-color: whitesmoke;
-  margin:30px; 
   box-shadow: 0 4px lightseagreen;
   padding: 20px;
 }
 
 .login-div h2 {
   margin-top: 0;
+  margin-left: 20px;
 }
 
 /* .login-div:hover {
