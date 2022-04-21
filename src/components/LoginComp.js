@@ -48,28 +48,26 @@ const LoginComp = () => {
 
   return (
     <div className="LoginComp d-flex column a-center">
-
-      <div className="d-flex row center  a-flex-end"> 
-        <div className=""><h1  className="mb15">STOCK KINGS forums</h1></div> 
-        <div className="ml50 mr50"><h3>forum-app</h3></div>   
-      </div>
-  
-      <div className="login-div column">
-        
-          <div ><h2>Login</h2></div>        
-      
-          <div className="txt-center mt50">Log in to STOCK KINGS or <b><Link to="/register">create an account</Link></b>
+      <div className="login-div d-flex column a-center">        
+          <div className="sign-div d-flex a-center"><h2>Login</h2></div>        
+          <div className="sign-div d-flex a-center ">Log in to STOCK KINGS or _<b><Link to="/register">create an account</Link></b></div>          
+          <div className="sign-div d-flex a-flex-end mt20 mb0 fs14">
+            <div className="c-gray mr5"><b>User Name</b></div>
+            <div className="c-bordo fs12">REQUIRED</div>             
           </div>
-          <div className="flex center mt20">
-            <input className="inp" type="text" ref={refs.usernameRef}  placeholder="Display Name" />
+          <div className="sign-div d-flex center">
+            <input className="inp" type="text" ref={refs.usernameRef}  placeholder="User Name" />
           </div>
-          <div className="flex center mt20">
+          <div className="sign-div d-flex a-flex-end mt20 mb0 fs14">
+            <div className="c-gray mr5"><b>Password</b></div>
+            <div className="c-bordo fs12">REQUIRED</div>             
+          </div>
+          <div className="sign-div d-flex center">
             <input className="inp" type="text" ref={refs.passwordRef}  placeholder="Password" />
           </div>      
-          <div className="flex center mt40">
+          <div className="sign-div d-flex a-center mt40">
             <button onClick={loginUser}>Continue</button>
           </div>
-
       </div>
     
     </div>                

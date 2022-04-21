@@ -11,7 +11,8 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import CreateTopicPage from './pages/CreateTopicPage';
 import AllTopicsPage from './pages/AllTopicsPage';
-import ToolbarComp from './components/ToolbarComp';
+import HeaderComp from './components/HeaderComp';
+import NavbarComp from './components/NavbarComp';
 import SingleTopicPage from './pages/SingleTopicPage';
 
 function App() {
@@ -31,8 +32,9 @@ return (
     <UserContext.Provider value={{getUser, setUser}}>  
       <MainContext.Provider value={{getTopic, setTopic, getLogUser, setLogUser, 
                                     getFavTopicCount, setFavTopicCount, getNotifiedCount, setNotifiedCount}}>  
-        <BrowserRouter> 
-        <ToolbarComp/>       
+        <BrowserRouter>
+        <HeaderComp /> 
+        <NavbarComp />       
         <Routes>
           <Route path='/'                     element={<HomePage />} />        {/* HomePage links: register, login, all topics with comments */}
           <Route path='/home'                 element={<HomePage />} />        {/* HomePage links: register, login, all topics with comments */}

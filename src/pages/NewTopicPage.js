@@ -3,11 +3,6 @@ import React from 'react'
 const NewTopicPage = () => {
   return (
     <div className="RegisterPage d-flex column a-center">
-
-      <div className="d-flex row center">
-        <div className="mr50"><h3>forum-app</h3></div>   
-        <div className="m0"><h3>NEW TOPIC Page</h3></div>
-      </div>
   
       <div className="register-div column grow1">
         <div className="txt-left"><h2>Create a NEW TOPIC</h2></div>    

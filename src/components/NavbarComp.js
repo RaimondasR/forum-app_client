@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-const Toolbar = () => {
+const NavbarComp = () => {
   const location = useLocation(); 
   const {getUser, setUser} = useContext(UserContext);
   const nav = useNavigate();  
@@ -17,7 +17,7 @@ const Toolbar = () => {
   }
 
   return (
-    <div className="ToolbarComp d-flex row">
+    <div className="NavbarComp d-flex row">
         {/* if user neither registered, nor logged in, then "login" and "register" links are shown */}
         {(!getUser && location.pathname !=="/login") && <Link to="/login">Sign In</Link>}
         {(!getUser && location.pathname !=="/register") && <Link to="/register">New User? Sign Up</Link>}   
@@ -41,4 +41,4 @@ const Toolbar = () => {
   )
 }
 
-export default Toolbar;
+export default NavbarComp;

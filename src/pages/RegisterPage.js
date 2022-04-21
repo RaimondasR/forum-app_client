@@ -3,7 +3,7 @@ import RegisterComp from '../components/RegisterComp';
 
 const RegisterPage = () => {
   return (
-    <div>
+    <div className="RegisterPage">
       <RegisterComp/>
     </div>
   )

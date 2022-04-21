@@ -3,7 +3,7 @@ import CreateTopicComp from '../components/CreateTopicComp';
 
 const CreateTopicPage = () => {
   return (
-    <div>
+    <div className="CreateTopicPage">
         <CreateTopicComp />
     </div>
   )

@@ -45,38 +45,37 @@ const RegisterComp = () => {
   } // end of function registerUser()
 
   return (
-    <div className="d-flex column a-center">
-      <div className="d-flex row center a-flex-end">          
-        <div className=""><h1  className="mb15">eBiden</h1></div>   
-        <div className="ml50 mr50"><h3>auction-app</h3></div>     
-        <div className="m0"><h3>Register Page</h3></div>
-      </div>
-
-      <div className="register-div column grow1">
-        <div className="txt-left"><h2>Register</h2></div>
-        <div className="txt-left">Let's get</div>
-        <div className="txt-left">you on board</div>
-        <div className="txt-left">new user</div>
-        <div className="flex column a-center">
-          <div className="flex center mt20">
-            <input className="inp" type="text" ref={refs.usernameRef}  placeholder="* Display Name" />
-          </div>
-          <div className="flex center mt20">
-            <input className="inp" type="text" ref={refs.emailRef}  placeholder="* Email Address" />
-          </div>
-          <div className="flex center mt20">
-            <input className="inp" type="text" ref={refs.password1Ref}  placeholder="* Password1" />
-          </div>
-          <div className="flex center mt20">
-            <input className="inp" type="text" ref={refs.password2Ref}  placeholder="* Confirm Password" />
-          </div>      
-          <div className="flex center mt40">
-            <button onClick={registerUser}>Create my Account</button>
-          </div>
-          <div className="txt-center mt50">Existing user? <b><Link to="/login">Sign In</Link></b></div>
+    <div className="RegisterComp d-flex column a-center">
+      <div className="register-div d-flex column a-center">
+        <div className="sign-div d-flex a-center"><h2>Register</h2></div>        
+        <div className="sign-div d-flex a-center ">Existing user? _<b><Link to="/login">Sign In</Link></b></div>
+        <div className="sign-div d-flex a-flex-end mt20 mb0 fs14">
+          <div className="c-gray mr5"><b>User Name</b></div>
+          <div className="c-bordo fs12">REQUIRED</div>             
+        </div>
+        <div className="sign-div d-flex center">
+          <input className="inp" type="text" ref={refs.usernameRef}  placeholder="User Name" />
+        </div>
+        <div className="sign-div d-flex a-flex-end mt20 mb0 fs14">
+          <div className="c-gray mr5"><b>Password</b></div>
+          <div className="c-bordo fs12">REQUIRED</div>             
+        </div>
+        <div className="sign-div d-flex center">
+          <input className="inp" type="text" ref={refs.passwordRef}  placeholder="Password" />
+        </div>
+        <div className="sign-div d-flex a-flex-end mt20 mb0 fs14">
+          <div className="c-gray mr5"><b>Confirm Password</b></div>
+          <div className="c-bordo fs12">REQUIRED</div>             
+        </div>
+        <div className="sign-div d-flex center">
+          <input className="inp" type="text" ref={refs.passwordRef}  placeholder="Confirm Password" />
+        </div>    
+        <div className="sign-div flex center mt40">
+          <button onClick={registerUser}>Create my Account</button>
+        </div>
         </div>
       </div>
-    </div>                 
+            
   );
 };
 
