@@ -5,18 +5,18 @@ const CreateTopicComp = () => {
   const {getTopic, setTopic} = useContext(MainContext);
 
   const refs = {
-    titleRef: useRef(),
-    creatorNameRef: useRef(),   
-    messageRef: useRef(), 
-    imageRef: useRef()    
+    topicTitleRef: useRef(),
+    topicCreatorNameRef: useRef(),   
+    topicMessageRef: useRef(), 
+    topicImageRef: useRef()    
   }  
 
   async function createTopic () {
     const topic = {
-      title: refs.titleRef.current.value,     // topic title
-      creatorName: refs.creatorNameRef.current.value,                            // topic creator, logged-in registered user
-      message: refs.messageRef.current.value, // topic message
-      image: refs.imageRef.current.value,     // topic image URL
+      topicTitle: refs.topicTitleRef.current.value,     // topic title
+      topicCreatorName: refs.topicCreatorNameRef.current.value,                            // topic creator, logged-in registered user
+      topicMessage: refs.topicMessageRef.current.value, // topic message
+      topicImage: refs.topicImageRef.current.value,     // topic image URL
     } 
     
     const options = {
@@ -47,32 +47,32 @@ const CreateTopicComp = () => {
         <div className="sign-div d-flex a-center fs20"><b>Create New Topic</b></div>    
         <div className="sign-div d-flex a-flex-end mb0 fs14">
           <div className="c-gray mr5"><b>Topic Title</b></div>
-          <div className="c-bordo fs12">REQUIRED</div>             
+          <div className="c-bordo fs11 mb2"><b>REQUIRED</b></div>             
         </div>
-        <div className="title-div d-flex center">
-          <input className="inp" type="text" ref={refs.titleRef} placeholder="Topic Title" />
+        <div className="sign-div d-flex center">
+          <input className="inp" type="text" ref={refs.topicTitleRef} placeholder="Topic Title" />
         </div>
         <div className="sign-div d-flex a-flex-end mt10 mb0 fs14">
           <div className="c-gray mr5"><b>Your Name</b></div>
-          <div className="c-bordo fs12">REQUIRED</div>             
+          <div className="c-bordo fs11 mb2"><b>REQUIRED</b></div>                 
         </div>
         <div className="sign-div d-flex center">
-          <input className="inp" type="text" ref={refs.creatorNameRef} placeholder="Your Name" />
+          <input className="inp" type="text" ref={refs.topicCreatorNameRef} placeholder="Your Name" />
         </div>
         <div className="sign-div d-flex a-flex-end mt10 mb0 fs14">
           <div className="c-gray mr5"><b>Message Text</b></div>
-          <div className="c-bordo fs12">REQUIRED</div>             
+          <div className="c-bordo fs11 mb2"><b>REQUIRED</b></div>              
         </div>
         {/* <div className="msg-div d-flex a-flex-start">
           <input className="inp d-flex a-flex-start" type="text" ref={refs.messageRef} placeholder="Type your message text here..." />
         </div> */}
-        <textarea placeholder="Type your message text here..."
+        <textarea className="msg-inp" ref={refs.topicMessageRef} placeholder="Type your message text here..."></textarea>
         <div className="sign-div d-flex a-flex-end mt10 mb0 fs14">
           <div className="c-gray mr5"><b>Topic Image URL</b></div>
-          <div className="c-dblue fs12">OPTIONAL</div>             
+          <div className="c-dblue fs11 mb2"><b>OPTIONAL</b></div>             
         </div>
         <div className="sign-div d-flex center">
-          <input className="inp" type="text" ref={refs.imageRef} placeholder="Insert image from URL e.g. http://www.example.com/image.jpg" />
+          <input className="inp" type="text" ref={refs.topicImageRef} placeholder="Insert image from URL e.g. http://www.example.com/image.jpg" />
         </div>
           
           <div className="sign-div d-flex center mt30">
