@@ -14,6 +14,7 @@ import AllTopicsPage from './pages/AllTopicsPage';
 import HeaderComp from './components/HeaderComp';
 import NavbarComp from './components/NavbarComp';
 import SingleTopicPage from './pages/SingleTopicPage';
+import FavTopicsPage from './pages/FavTopicsPage';
 
 function App() {
   const [getUser, setUser] = useState(null);
@@ -40,12 +41,12 @@ return (
           <Route path='/home'                 element={<HomePage />} />        {/* HomePage links: register, login, all topics with comments */}
           <Route path='/register'             element={<RegisterPage />} />    {/* RegisterPage for sign-up of a new user */}
           <Route path='/login'                element={<LoginPage />} />       {/* LoginPage for login of an existing user */}
-          <Route path='/main'                 element={<MainPage />} />        {/* MainPage after login links to: 1. all topics, 2. create new topic */}
           <Route path='/myaccount/:id/:name'  element={<MyAccountPage />} />   {/* MyAccountPage after login shows all user's comments and created topics */}
           <Route path='/create-topic'         element={<CreateTopicPage />} /> {/* CreateAuctionPage for creating a new auction */}
           <Route path='/all-topics'           element={<AllTopicsPage topic={getTopic} />} /> {/* AllAuctionsPage like IndexPage lists all auctions */}
-          <Route path='/topic/:url'           element={<SingleTopicPage />} />
-          </Routes> 
+          <Route path='/topic/:id'           element={<SingleTopicPage />} />
+          <Route path='/favorite-topics'     element={<FavTopicsPage />} />
+        </Routes> 
         </BrowserRouter>
       </MainContext.Provider> 
     </UserContext.Provider>        
