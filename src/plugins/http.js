@@ -21,9 +21,9 @@ const http = {
             body: JSON.stringify(data)
         }
 
-        const res = await fetch(`http://localhost:4000/${url}`, options)
-        return await res.json()
+        const res = await fetch(`http://localhost:4000/${url}`, options);
+        return await res.json();
     }
 }
 
-export default http
+export default http;

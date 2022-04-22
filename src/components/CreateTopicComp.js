@@ -41,32 +41,33 @@ const CreateTopicComp = () => {
   };
 
   return (
-    <div className="CreateTopicComp d-flex column a-center">
+    <div className="CreateTopicComp d-flex column">
   
       <div className="create-topic-div d-flex column a-center">
-        <div className="sign-div d-flex a-center"><h2>Create New Topic</h2></div>    
-        <div className="sign-div d-flex a-flex-end mt20 mb0 fs14">
+        <div className="sign-div d-flex a-center fs20"><b>Create New Topic</b></div>    
+        <div className="sign-div d-flex a-flex-end mb0 fs14">
           <div className="c-gray mr5"><b>Topic Title</b></div>
           <div className="c-bordo fs12">REQUIRED</div>             
         </div>
         <div className="title-div d-flex center">
           <input className="inp" type="text" ref={refs.titleRef} placeholder="Topic Title" />
         </div>
-        <div className="sign-div d-flex a-flex-end mt20 mb0 fs14">
+        <div className="sign-div d-flex a-flex-end mt10 mb0 fs14">
           <div className="c-gray mr5"><b>Your Name</b></div>
           <div className="c-bordo fs12">REQUIRED</div>             
         </div>
         <div className="sign-div d-flex center">
           <input className="inp" type="text" ref={refs.creatorNameRef} placeholder="Your Name" />
         </div>
-        <div className="sign-div d-flex a-flex-end mt20 mb0 fs14">
+        <div className="sign-div d-flex a-flex-end mt10 mb0 fs14">
           <div className="c-gray mr5"><b>Message Text</b></div>
           <div className="c-bordo fs12">REQUIRED</div>             
         </div>
-        <div className="msg-div d-flex a-flex-start">
+        {/* <div className="msg-div d-flex a-flex-start">
           <input className="inp d-flex a-flex-start" type="text" ref={refs.messageRef} placeholder="Type your message text here..." />
-        </div>
-        <div className="sign-div d-flex a-flex-end mt20 mb0 fs14">
+        </div> */}
+        <textarea placeholder="Type your message text here..."
+        <div className="sign-div d-flex a-flex-end mt10 mb0 fs14">
           <div className="c-gray mr5"><b>Topic Image URL</b></div>
           <div className="c-dblue fs12">OPTIONAL</div>             
         </div>
@@ -74,7 +75,7 @@ const CreateTopicComp = () => {
           <input className="inp" type="text" ref={refs.imageRef} placeholder="Insert image from URL e.g. http://www.example.com/image.jpg" />
         </div>
           
-          <div className="sign-div d-flex center mt40">
+          <div className="sign-div d-flex center mt30">
             <button onClick={createTopic}>Submit Topic</button>
           </div> 
       </div>
