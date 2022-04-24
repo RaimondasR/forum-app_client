@@ -19,7 +19,7 @@ import FavTopicsPage from './pages/FavTopicsPage';
 function App() {
   const [getUser, setUser] = useState(null);
   const [getTopic, setTopic] = useState([]);
-  const [getLogUser, setLogUser] = useState(null);  // logged-in user name
+  const [getLogUser, setLogUser] = useState(null);  // registered and|or logged-in user's name
   const [getFavTopicCount, setFavTopicCount] = useState(null); // user's favorite topics count
   const [getNotifiedCount, setNotifiedCount] = useState(0);  // notifications count : new message in user's created topic
 
