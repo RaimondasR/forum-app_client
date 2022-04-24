@@ -16,7 +16,7 @@ const RegisterComp = () => {
       userImageRef: useRef()   
   }
 
-  async function registerUser() {
+  async function userRegister() {
     const user = {
         userName: refs.userNameRef.current.value,
         password1: refs.password1Ref.current.value,
@@ -32,30 +32,7 @@ const RegisterComp = () => {
           }, 3000)
         }
       })
-  }  // end of function registerUser()
-            
-    // const options = {
-    //   method: "POST",
-    //   headers: {
-    //     "content-type": "application/json"
-    //   },
-    //   credentials: "include",
-    //   body: JSON.stringify(user)
-    // }
-
-    //   const res = await fetch("http://localhost:4000/register", options);
-    //   const data = await res.json();
-    //   // if user registration is succsessful then switch to user login page
-    //   if(!data.error) {
-    //     console.log("success: user registration all good");
-    //     setUser(user.username);
-    //     console.log("data :",data);
-    //     console.log("user.username :",user.username);
-    //     console.log("getUser :",getUser);
-    //     console.log("user :", user)
-    //     nav("/login");
-    //   } else console.log("error: user registration bad credentials");
-  // } // end of function registerUser()
+  }  // end of function userRegister()            
 
   return (
     <div className="RegisterComp d-flex column a-center">
@@ -88,10 +65,10 @@ const RegisterComp = () => {
           <div className="c-blue fs11 mb2">OPTIONAL</div>             
         </div>
         <div className="sign-div d-flex center">
-          <input className="inp" type="text" ref={refs.password2Ref}  placeholder="Your photo or picture image link" />
+          <input className="inp" type="text" ref={refs.userImageRef}  placeholder="Your photo or picture image link" />
         </div>    
         <div className="sign-div flex center mt40">
-          <button onClick={registerUser}>Create my Account</button>
+          <button onClick={userRegister}>Create my Account</button>
         </div>
         </div>
       </div>
