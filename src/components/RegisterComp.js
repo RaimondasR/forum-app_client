@@ -61,31 +61,31 @@ const RegisterComp = () => {
     <div className="RegisterComp d-flex column a-center">
       <div className="register-div d-flex column a-center">
         <div className="sign-div d-flex a-center"><h2>Register</h2></div>        
-        <div className="sign-div d-flex a-center ">Existing user? _<b><Link to="/login">Sign In</Link></b></div>
+        <div className="sign-div d-flex a-center ">Existing user? _<b><Link to="/login" className="c-blue">Sign In</Link></b></div>
         <div className="sign-div d-flex a-flex-end mt20 mb0 fs14">
           <div className="c-gray mr5"><b>User Name</b></div>
-          <div className="c-bordo fs11 mb2">REQUIRED</div>             
+          <div className="c-red fs11 mb2">REQUIRED</div>             
         </div>
         <div className="sign-div d-flex center">
           <input className="inp" type="text" ref={refs.userNameRef}  placeholder="User Name" />
         </div>
         <div className="sign-div d-flex a-flex-end mt20 mb0 fs14">
           <div className="c-gray mr5"><b>Password</b></div>
-          <div className="c-bordo fs11 mb2">REQUIRED</div>             
+          <div className="c-red fs11 mb2">REQUIRED</div>             
         </div>
         <div className="sign-div d-flex center">
           <input className="inp" type="text" ref={refs.password1Ref}  placeholder="Password" />
         </div>
         <div className="sign-div d-flex a-flex-end mt20 mb0 fs14">
           <div className="c-gray mr5"><b>Confirm Password</b></div>
-          <div className="c-bordo fs11 mb2">REQUIRED</div>             
+          <div className="c-red fs11 mb2">REQUIRED</div>             
         </div>
         <div className="sign-div d-flex center">
           <input className="inp" type="text" ref={refs.password2Ref}  placeholder="Confirm Password" />
         </div>
         <div className="sign-div d-flex a-flex-end mt20 mb0 fs14">
           <div className="c-gray mr5"><b>Your picture image URL</b></div>
-          <div className="c-dblue fs11 mb2">OPTIONAL</div>             
+          <div className="c-blue fs11 mb2">OPTIONAL</div>             
         </div>
         <div className="sign-div d-flex center">
           <input className="inp" type="text" ref={refs.password2Ref}  placeholder="Your photo or picture image link" />

@@ -24,9 +24,13 @@
   padding: 10px;
   width: 100%;
   background-color:lightskyblue;
+  color: blue;
   box-shadow: 0 4px lightseagreen;
   font-size: 18px;
+  font-weight: 600;
 }
+
+.NavbarComp Link {  color: blue; }
 
 .HeaderComp {
   display: flex;
@@ -176,10 +180,13 @@ button:hover {
 /* COLORS */
 .bc-orange {  background-color: orange; }
 .bc-pink {  background-color: pink; }
+.c-blue {  color: blue; }
 .c-bordo {  color: rgba(121, 18, 65, 0.877); }
-.c-gray {  color: gray; }
 .c-cyan {  color: cyan; }
 .c-dblue {  color: darkblue; }
+.c-gray {  color: gray; }
+.c-red {  color: red; }
+
 
 /* FLEX */
 .d-flex {display: flex;}

@@ -50,17 +50,17 @@ const LoginComp = () => {
     <div className="LoginComp d-flex column a-center">
       <div className="login-div d-flex column a-center">        
           <div className="sign-div d-flex a-center"><h2>Login</h2></div>        
-          <div className="sign-div d-flex a-center ">Log in to STOCK KINGS or _<b><Link to="/register">create an account</Link></b></div>          
+          <div className="sign-div d-flex a-center ">Log in to STOCK KINGS or _<b><Link to="/register" className="c-blue">create an account</Link></b></div>          
           <div className="sign-div d-flex a-flex-end mt20 mb0 fs14">
             <div className="c-gray mr5"><b>User Name</b></div>
-            <div className="c-bordo fs12">REQUIRED</div>             
+            <div className="c-red fs12">REQUIRED</div>             
           </div>
           <div className="sign-div d-flex center">
             <input className="inp" type="text" ref={refs.usernameRef}  placeholder="User Name" />
           </div>
           <div className="sign-div d-flex a-flex-end mt20 mb0 fs14">
             <div className="c-gray mr5"><b>Password</b></div>
-            <div className="c-bordo fs12">REQUIRED</div>             
+            <div className="c-red fs12">REQUIRED</div>             
           </div>
           <div className="sign-div d-flex center">
             <input className="inp" type="text" ref={refs.passwordRef}  placeholder="Password" />
