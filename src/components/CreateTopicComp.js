@@ -1,8 +1,10 @@
-import React, { useRef, useContext } from 'react';
-import { MainContext } from '../context/MainContext';
+import React, { useRef, useState } from 'react';
+import http from '../plugins/http';
+import { useNavigate } from "react-router-dom";
 
 const CreateTopicComp = () => {
-  const {getTopic, setTopic} = useContext(MainContext);
+  const nav = useNavigate();
+  const [message, setMessage] = useState(null);
 
   const refs = {
     topicTitleRef: useRef(),
@@ -12,32 +14,54 @@ const CreateTopicComp = () => {
   }  
 
   async function createTopic () {
-    const topic = {
-      topicTitle: refs.topicTitleRef.current.value,     // topic title
-      topicCreatorName: refs.topicCreatorNameRef.current.value,                            // topic creator, logged-in registered user
-      topicMessage: refs.topicMessageRef.current.value, // topic message
-      topicImage: refs.topicImageRef.current.value,     // topic image URL
+    const topicData = {
+      topicTitle: refs.topicTitleRef.current.value,             // topic title
+      topicCreatorName: refs.topicCreatorNameRef.current.value, // topic creator, logged-in registered user
+      topicMessage: refs.topicMessageRef.current.value,         // topic message
+      topicImage: refs.topicImageRef.current.value,             // topic image URL
     } 
     
-    const options = {
-        method: "POST",
-        headers: {
-          "content-type": "application/json"
-        },
-        credentials: "include",
-        body: JSON.stringify(topic)
-    }
+    http.post(topicData, "create-topic")
+      .then((res) => {
+        if (!res.success) {
+          setMessage(res.message);
+        }
+        if (res.success) {
+          const id = res.id;
+          const topicMessageData = {
+            topicId: id,
+            topicMessage: refs.topicMessageRef.current.value,
+            topicTitle: refs.topicTitleRef.current.value 
+          }
 
-    const res = await fetch("http://localhost:4000/create-topic", options);
-    const data = await res.json();
-    if (!data.error) {
-      console.log("success: new forum topic is created");
-      console.log("data :", data);
-      setTopic(data.topic);
-    } else {
-      console.log("error: forum topic is not created");
-      console.log("data :", data);
-    }
+          http.post(topicMessageData, "initial-topic-message")
+            .then((res) => {
+              if (res.success) {
+                nav(`/topic/${id}/${refs.topicTitleRef.current.value}`)
+              }
+            })
+      }
+  })
+
+    // const options = {
+    //     method: "POST",
+    //     headers: {
+    //       "content-type": "application/json"
+    //     },
+    //     credentials: "include",
+    //     body: JSON.stringify(topic)
+    // }
+
+    // const res = await fetch("http://localhost:4000/create-topic", options);
+    // const data = await res.json();
+    // if (!data.error) {
+    //   console.log("success: new forum topic is created");
+    //   console.log("data :", data);
+    //   setTopic(data.topic);
+    // } else {
+    //   console.log("error: forum topic is not created");
+    //   console.log("data :", data);
+    // }
   };
 
   return (

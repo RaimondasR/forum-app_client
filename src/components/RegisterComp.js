@@ -6,8 +6,7 @@ import http from '../plugins/http';
 
 const RegisterComp = () => {
   const nav = useNavigate();  
-  const {getUser, setUser} = useContext(UserContext);
-  const [getMessage, setMessage] = useState(null);
+  const [message, setMessage] = useState(null);
 
   const refs = {
       userNameRef: useRef(),
@@ -25,7 +24,7 @@ const RegisterComp = () => {
     }
     http.post(user, "register") 
       .then((res) => {
-        setMessage({success: res.success, getMessage: res.getMessage});
+        setMessage({success: res.success, message: res.message});
         if (res.success) {
           setTimeout(() => {
             setMessage(null);
@@ -66,7 +65,8 @@ const RegisterComp = () => {
         </div>
         <div className="sign-div d-flex center">
           <input className="inp" type="text" ref={refs.userImageRef}  placeholder="Your photo or picture image link" />
-        </div>    
+        </div> 
+        {message && <div className={message.success ? "msg-success-true" : "msg-success-false"} >{message.message}</div>}   
         <div className="sign-div flex center mt40">
           <button onClick={userRegister}>Create my Account</button>
         </div>
