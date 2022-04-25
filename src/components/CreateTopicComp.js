@@ -14,54 +14,24 @@ const CreateTopicComp = () => {
   }  
 
   async function createTopic () {
-    const topicData = {
+    const topic = {
+      topicId,
       topicTitle: refs.topicTitleRef.current.value,             // topic title
       topicCreatorName: refs.topicCreatorNameRef.current.value, // topic creator, logged-in registered user
       topicMessage: refs.topicMessageRef.current.value,         // topic message
       topicImage: refs.topicImageRef.current.value,             // topic image URL
     } 
     
-    http.post(topicData, "create-topic")
+    http.post(topic, "create-topic")
       .then((res) => {
-        if (!res.success) {
-          setMessage(res.message);
-        }
+        setMessage({success: res.success, message: res.message});
         if (res.success) {
           const id = res.id;
-          const topicMessageData = {
-            topicId: id,
-            topicMessage: refs.topicMessageRef.current.value,
-            topicTitle: refs.topicTitleRef.current.value 
-          }
+          topicId: id;
+          nav(`/topic/${id}/${refs.topicTitleRef.current.value}`)
+        }
+      })
 
-          http.post(topicMessageData, "initial-topic-message")
-            .then((res) => {
-              if (res.success) {
-                nav(`/topic/${id}/${refs.topicTitleRef.current.value}`)
-              }
-            })
-      }
-  })
-
-    // const options = {
-    //     method: "POST",
-    //     headers: {
-    //       "content-type": "application/json"
-    //     },
-    //     credentials: "include",
-    //     body: JSON.stringify(topic)
-    // }
-
-    // const res = await fetch("http://localhost:4000/create-topic", options);
-    // const data = await res.json();
-    // if (!data.error) {
-    //   console.log("success: new forum topic is created");
-    //   console.log("data :", data);
-    //   setTopic(data.topic);
-    // } else {
-    //   console.log("error: forum topic is not created");
-    //   console.log("data :", data);
-    // }
   };
 
   return (

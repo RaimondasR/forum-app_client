@@ -66,7 +66,7 @@ const RegisterComp = () => {
         <div className="sign-div d-flex center">
           <input className="inp" type="text" ref={refs.userImageRef}  placeholder="Your photo or picture image link" />
         </div> 
-        {message && <div className={message.success ? "msg-success-true" : "msg-success-false"} >{message.message}</div>}   
+        {message && <div className="sign-div d-flex center">{message.message}</div>}   
         <div className="sign-div flex center mt40">
           <button onClick={userRegister}>Create my Account</button>
         </div>
