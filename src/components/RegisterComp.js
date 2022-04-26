@@ -1,8 +1,7 @@
-import React, { useRef, useState, useContext } from 'react';
-import { UserContext } from '../context/UserContext';
+import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 import http from '../plugins/http';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterComp = () => {
   const nav = useNavigate();  
@@ -29,9 +28,10 @@ const RegisterComp = () => {
           setTimeout(() => {
             setMessage(null);
           }, 3000)
+          nav('/login');
         }
       })
-  }  // end of function userRegister()            
+  } // end of function userRegister()            
 
   return (
     <div className="RegisterComp d-flex column a-center">
@@ -65,11 +65,11 @@ const RegisterComp = () => {
         </div>
         <div className="sign-div d-flex center">
           <input className="inp" type="text" ref={refs.userImageRef}  placeholder="Your photo or picture image link" />
-        </div> 
-        {message && <div className="sign-div d-flex center">{message.message}</div>}   
+        </div>   
         <div className="sign-div flex center mt40">
           <button onClick={userRegister}>Create my Account</button>
         </div>
+        {message && <div className="msg-div d-flex center mt15">{message.message}</div>}  
         </div>
       </div>
             

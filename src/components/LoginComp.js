@@ -1,14 +1,13 @@
 import React, { useRef, useState, useContext } from 'react';
-import { UserContext } from '../context/UserContext';
 import { MainContext } from '../context/MainContext';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import http from '../plugins/http';
 
 const LoginComp = () => {
   const nav = useNavigate();  
-  const [getMessage, setMessage] = useState(null);
+  const [message, setMessage] = useState(null);
   const {setLoggedInUser, setNotifiedCount} = useContext(MainContext);
-  const {getUser, setUser} = useContext(UserContext);
 
   const refs = {
     usernameRef: useRef(),
@@ -21,29 +20,24 @@ const LoginComp = () => {
         password: refs.passwordRef.current.value,
     }
 
-    const options = {
-        method: "POST",
-        headers: {
-            "content-type": "application/json"
-        },
-        credentials: "include",
-        body: JSON.stringify(user)
-    }
+    http.post(user, "login")
+      .then((res) => {
+        if (!res.success) {
+            setMessage(res.message);
+        }
+        if (res.success) {
+          setMessage(null);
+          setLoggedInUser(res.user);
+          nav(`/myaccount/${res.user.userId}/${res.user.userName}`);
 
-    const res = await fetch("http://localhost:4000/login", options);
-    const data = await res.json();
-
-
-    {/* if user login is successfull (error=false) then we store user's secret key value to local storage  */}
-    if(!data.error) {
-      console.log("success: user login all good");
-      console.log("data :",data);
-      setUser(data.user);
-      localStorage.setItem('secret', data.secret);
-      console.log("user.username :",user.username);
-      nav("/home");
-    }
-    console.log(data);
+          http.get("get-notifications")
+              .then((res) => {
+                  if (res.success) {
+                    setNotifiedCount(res.commentsNotSeenCount)
+                  }
+          })
+        }
+      })
   }
 
   return (
@@ -66,8 +60,9 @@ const LoginComp = () => {
             <input className="inp" type="text" ref={refs.passwordRef}  placeholder="Password" />
           </div>      
           <div className="sign-div d-flex a-center mt40">
-            <button onClick={loginUser}>Continue</button>
+            <button onClick={loginUser}>Login</button>
           </div>
+          {message && <div className="msg-div d-flex center mt15">{message.message}</div>}  
       </div>
     
     </div>                
