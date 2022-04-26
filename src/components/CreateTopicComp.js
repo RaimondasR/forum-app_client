@@ -15,7 +15,6 @@ const CreateTopicComp = () => {
 
   async function createTopic () {
     const topic = {
-      topicId,
       topicTitle: refs.topicTitleRef.current.value,             // topic title
       topicCreatorName: refs.topicCreatorNameRef.current.value, // topic creator, logged-in registered user
       topicMessage: refs.topicMessageRef.current.value,         // topic message
@@ -27,7 +26,6 @@ const CreateTopicComp = () => {
         setMessage({success: res.success, message: res.message});
         if (res.success) {
           const id = res.id;
-          topicId: id;
           nav(`/topic/${id}/${refs.topicTitleRef.current.value}`)
         }
       })
