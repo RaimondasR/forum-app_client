@@ -1,21 +1,34 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import http from "../plugins/http";
 
-const SingleTopicComp = ({topic}) => {
-  const nav = useNavigate();
+const SingleTopicComp = () => {
+  const {id} = useParams();
+  const [topic, setTopic] = useState(null);
+  const [comments, setComments] = useState(null);
+  const [page, setPage] = useState(1);
+  const [count, setCount] = useState(null);
 
-  function goToTopic() {
-    nav('/topic/' + topic.url);
-  }
+  useEffect(() => {
+    http.get(`getSingleTopic/${id}`)
+      .then((res) => {
+        if (res.success) {
+            setTopic(res.topic);
+        } 
+      })
+    
+    http.get(`getSingleTopicComments/${id}/${page}`)
+        .then((res) => {
+            if  (res.success) {
+                setComments(res.comments);
+                setCount(res.count);
+            }
+        })
+}, [])
 
   return (
     <div className="flex">        
-      <div>{topic.creatorName}</div>
-      <div>{topic.title}</div>
-      <div>{topic.message}</div>
-      <div>{topic.image}</div>
 
-      <button onClick={goToTopic}>Go to Topic</button>
     </div>
   )
 }

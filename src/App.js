@@ -39,7 +39,7 @@ return (
           <Route path='/myaccount/:id/:name' element={<MyAccountPage />} />   {/* MyAccountPage after login shows all user's comments and created topics */}
           <Route path='/create-topic'        element={<CreateTopicPage />} /> {/* CreateAuctionPage for creating a new auction */}
           <Route path='/all-topics'          element={<AllTopicsPage />} /> {/* AllAuctionsPage like IndexPage lists all auctions */}
-          <Route path='/topic/:id'           element={<SingleTopicPage />} />
+          <Route path='/topic/:id/:topic'    element={<SingleTopicPage />} />
           <Route path='/favorite-topics'     element={<FavTopicsPage />} />
         </Routes> 
         </BrowserRouter>
