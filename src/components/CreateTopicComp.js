@@ -9,7 +9,7 @@ const CreateTopicComp = () => {
   const refs = {
     topicTitleRef: useRef(),
     topicCreatorNameRef: useRef(),   
-    topicMessageRef: useRef(), 
+    topicSummaryTextRef: useRef(), 
     topicImageRef: useRef()    
   }  
 
@@ -17,7 +17,7 @@ const CreateTopicComp = () => {
     const topic = {
       topicTitle: refs.topicTitleRef.current.value,             // topic title
       topicCreatorName: refs.topicCreatorNameRef.current.value, // topic creator, logged-in registered user
-      topicMessage: refs.topicMessageRef.current.value,         // topic message
+      topicSummaryText: refs.topicSummaryTextRef.current.value,         // topic message
       topicImage: refs.topicImageRef.current.value,             // topic image URL
     } 
     
@@ -52,13 +52,10 @@ const CreateTopicComp = () => {
           <input className="inp" type="text" ref={refs.topicCreatorNameRef} placeholder="Your Name" />
         </div>
         <div className="sign-div d-flex a-flex-end mt10 mb0 fs14">
-          <div className="c-gray mr5"><b>Message Text</b></div>
+          <div className="c-gray mr5"><b>Topic Summary Text</b></div>
           <div className="c-red fs11 mb2"><b>REQUIRED</b></div>              
         </div>
-        {/* <div className="msg-div d-flex a-flex-start">
-          <input className="inp d-flex a-flex-start" type="text" ref={refs.messageRef} placeholder="Type your message text here..." />
-        </div> */}
-        <textarea className="msg-inp" ref={refs.topicMessageRef} placeholder="Type your message text here..."></textarea>
+        <textarea className="msg-inp" ref={refs.topicSummaryTextRef} placeholder="Type your topic summary text here..."></textarea>
         <div className="sign-div d-flex a-flex-end mt10 mb0 fs14">
           <div className="c-gray mr5"><b>Topic Image URL</b></div>
           <div className="c-blue fs11 mb2"><b>OPTIONAL</b></div>             
