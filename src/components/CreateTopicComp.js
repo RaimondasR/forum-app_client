@@ -8,17 +8,17 @@ const CreateTopicComp = () => {
 
   const refs = {
     topicTitleRef: useRef(),
-    topicCreatorNameRef: useRef(),   
+    topicAuthorRef: useRef(),   
     topicSummaryTextRef: useRef(), 
     topicImageRef: useRef()    
   }  
 
   async function createTopic () {
     const topic = {
-      topicTitle: refs.topicTitleRef.current.value,             // topic title
-      topicCreatorName: refs.topicCreatorNameRef.current.value, // topic creator, logged-in registered user
-      topicSummaryText: refs.topicSummaryTextRef.current.value,         // topic message
-      topicImage: refs.topicImageRef.current.value,             // topic image URL
+      topicTitle: refs.topicTitleRef.current.value,  // topic title
+      topicAuthor: refs.topicAuthorRef.current.value, // topic author, logged-in registered user 
+      topicSummaryText: refs.topicSummaryTextRef.current.value, // topic summary text
+      topicImage: refs.topicImageRef.current.value,  // topic image URL
     } 
     
     http.post(topic, "create-topic")
@@ -26,10 +26,10 @@ const CreateTopicComp = () => {
         setMessage({success: res.success, message: res.message});
         if (res.success) {
           const id = res.id;
-          nav(`/topic/${id}/${refs.topicTitleRef.current.value}`)
+          setMessage(null);
+          // nav(`/topic/${id}/${refs.topicTitleRef.current.value}`)
         }
       })
-
   };
 
   return (
@@ -49,7 +49,7 @@ const CreateTopicComp = () => {
           <div className="c-red fs11 mb2"><b>REQUIRED</b></div>                 
         </div>
         <div className="sign-div d-flex center">
-          <input className="inp" type="text" ref={refs.topicCreatorNameRef} placeholder="Your Name" />
+          <input className="inp" type="text" ref={refs.topicAuthorRef} placeholder="Your Name" />
         </div>
         <div className="sign-div d-flex a-flex-end mt10 mb0 fs14">
           <div className="c-gray mr5"><b>Topic Summary Text</b></div>
@@ -62,11 +62,11 @@ const CreateTopicComp = () => {
         </div>
         <div className="sign-div d-flex center">
           <input className="inp" type="text" ref={refs.topicImageRef} placeholder="Insert image from URL e.g. http://www.example.com/image.jpg" />
+        </div>          
+        <div className="sign-div d-flex center mt30">
+          <button onClick={createTopic}>Submit Topic</button>
         </div>
-          
-          <div className="sign-div d-flex center mt30">
-            <button onClick={createTopic}>Submit Topic</button>
-          </div> 
+        {message && <div className="msg-div d-flex center mt15">{message.message}</div>} 
       </div>
     </div>
   );

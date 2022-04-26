@@ -30,11 +30,7 @@ const NavbarComp = () => {
             <div onClick={SignOutUser}>Sign Out
             </div>
           </div>
-        }
-          
-     
-        
-        
+        }                             
     </div>
   )
 }

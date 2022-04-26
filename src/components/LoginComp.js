@@ -28,14 +28,15 @@ const LoginComp = () => {
         if (res.success) {
           setMessage(null);
           setLoggedInUser(res.user);
-          nav(`/myaccount/${res.user.userId}/${res.user.userName}`);
+          nav("/create-topic");
+          // nav(`/myaccount/${res.user.userId}/${res.user.userName}`);
 
-          http.get("get-notifications")
-              .then((res) => {
-                  if (res.success) {
-                    setNotifiedCount(res.commentsNotSeenCount)
-                  }
-          })
+          // http.get("get-notifications")
+          //     .then((res) => {
+          //         if (res.success) {
+          //           setNotifiedCount(res.commentsNotSeenCount)
+          //         }
+          // })
         }
       })
   }

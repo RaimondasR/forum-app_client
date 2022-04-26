@@ -24,11 +24,11 @@ const RegisterComp = () => {
     http.post(user, "register") 
       .then((res) => {
         setMessage({success: res.success, message: res.message});
-        if (res.success) {
+        if (res.success) {          
           setTimeout(() => {
             setMessage(null);
           }, 3000)
-          nav('/login');
+          nav("/login");
         }
       })
   } // end of function userRegister()            
