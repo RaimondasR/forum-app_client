@@ -29,7 +29,7 @@ const CreateTopicComp = () => {
           console.log("res.id:",res.id);
           const id = res.id;
           setMessage(null);
-          // nav(`/topic/${id}/${refs.topicTitleRef.current.value}`)
+          nav(`/topic/${id}/${refs.topicTitleRef.current.value}`)
         }
       })
   };
