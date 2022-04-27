@@ -174,9 +174,40 @@ button:hover {
   width: 100%;
 }
 
+.pagination-div {
+  padding: 10px;
+  background-color: lightgray;
+  color: white;
+  border-top: 1px solid gray;
+}
+
+.changePrevPage-div {
+  border: 1px solid lightgray;
+  border-radius: 5px 0 0 5px;
+}
+
+.border-tbr {
+  border-top: 1px solid lightblue;
+  border-bottom: 1px solid lightblue;
+  border-right: 1px solid lightblue;
+}
+
+.hover:hover {
+  background-color: rgb(247, 180, 188);
+  transition: 0.2s; 
+}
+
+.nextPage {
+  border: 1px solid lightblue;
+  border-left: none;
+  border-radius: 0 5px 5px 0;
+}
+
+
 /* COLORS */
 .bc-orange {  background-color: orange; }
 .bc-pink {  background-color: pink; }
+.bg-light { background-color: rgb(241, 235, 236); }
 .c-blue {  color: blue; }
 .c-bordo {  color: rgba(121, 18, 65, 0.877); }
 .c-cyan {  color: cyan; }
