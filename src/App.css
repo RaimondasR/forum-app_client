@@ -162,24 +162,16 @@ button:hover {
   padding: 50px;
 }
 
-.all-auct-div {
-  min-height: 400px; 
-  min-width: 500px;
-  background-color: whitesmoke;
-  margin:30px;
-  border-radius: 14px;
-  box-shadow: 4px 4px lightseagreen;
-  padding: 20px;
+.mapComments {
+  background-color: lightpink;
+  padding: 12px;
+  border-radius: 4px;
 }
 
-.new-auct-div {
-  min-height: 400px; 
-  min-width: 500px;
-  background-color: whitesmoke;
-  margin:30px;
-  border-radius: 14px;
-  box-shadow: 4px 4px lightseagreen;
-  padding: 20px;
+.SingeTopicComp {
+  display: flex;
+  position: relative;
+  width: 100%;
 }
 
 /* COLORS */
