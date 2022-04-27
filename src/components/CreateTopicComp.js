@@ -25,6 +25,8 @@ const CreateTopicComp = () => {
       .then((res) => {
         setMessage({success: res.success, message: res.message});
         if (res.success) {
+          console.log("res:",res);
+          console.log("res.id:",res.id);
           const id = res.id;
           setMessage(null);
           // nav(`/topic/${id}/${refs.topicTitleRef.current.value}`)

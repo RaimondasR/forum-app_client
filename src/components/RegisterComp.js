@@ -69,7 +69,7 @@ const RegisterComp = () => {
         <div className="sign-div flex center mt40">
           <button onClick={userRegister}>Create my Account</button>
         </div>
-        {message && <div className="msg-div d-flex center mt15">{message.message}</div>}  
+        {message && <div className="msg-div d-flex center mt15">{message}</div>}  
         </div>
       </div>
             

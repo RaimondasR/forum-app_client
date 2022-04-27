@@ -10,23 +10,27 @@ const LoginComp = () => {
   const {setLoggedInUser, setNotifiedCount} = useContext(MainContext);
 
   const refs = {
-    usernameRef: useRef(),
+    userNameRef: useRef(),
     passwordRef: useRef(),
   }
 
   async function loginUser() {
     const user = {
-        username: refs.usernameRef.current.value,
+        userName: refs.userNameRef.current.value,
         password: refs.passwordRef.current.value,
     }
 
     http.post(user, "login")
       .then((res) => {
+        // console.log("res: ",res);
+        setMessage({success: res.success, message: res.message});
         if (!res.success) {
             setMessage(res.message);
         }
         if (res.success) {
-          setMessage(null);
+          setTimeout(() => {
+            setMessage(null);
+          }, 3000)
           setLoggedInUser(res.user);
           nav("/create-topic");
           // nav(`/myaccount/${res.user.userId}/${res.user.userName}`);
@@ -51,7 +55,7 @@ const LoginComp = () => {
             <div className="c-red fs12">REQUIRED</div>             
           </div>
           <div className="sign-div d-flex center">
-            <input className="inp" type="text" ref={refs.usernameRef}  placeholder="User Name" />
+            <input className="inp" type="text" ref={refs.userNameRef}  placeholder="User Name" />
           </div>
           <div className="sign-div d-flex a-flex-end mt20 mb0 fs14">
             <div className="c-gray mr5"><b>Password</b></div>
@@ -63,7 +67,7 @@ const LoginComp = () => {
           <div className="sign-div d-flex a-center mt40">
             <button onClick={loginUser}>Login</button>
           </div>
-          {message && <div className="msg-div d-flex center mt15">{message.message}</div>}  
+          {message && <div className="msg-div d-flex center mt15">{message}</div>}  
       </div>
     
     </div>                
