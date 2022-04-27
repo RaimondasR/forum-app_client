@@ -174,14 +174,14 @@ button:hover {
   width: 100%;
 }
 
-.pagination-div {
+.pagination_div {
   padding: 10px;
   background-color: lightgray;
   color: white;
   border-top: 1px solid gray;
 }
 
-.changePrevPage-div {
+.changePrevPage_div {
   border: 1px solid lightgray;
   border-radius: 5px 0 0 5px;
 }
@@ -225,6 +225,7 @@ button:hover {
 
 /* FLEX */
 .d-flex {display: flex;}
+.d_flex {display: flex;}
 .f-wrap { flex-wrap: wrap;}
 .row {flex-direction:row;}
 .column {flex-direction: column;}

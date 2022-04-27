@@ -1,11 +1,11 @@
 import React from 'react';
-import './App.css';
+import styles from '../App.css';
 
 const PaginationComp = ({page, commentsCount, turnPage}) => {
   function doPagination() {
     if (commentsCount <= 10) {
       return (
-        <div className="pagination-div">Page: 1</div>
+        <div className={styles.pagination_div}>Page: 1</div>
       )
     }
     if (commentsCount > 10) {
@@ -25,18 +25,18 @@ const PaginationComp = ({page, commentsCount, turnPage}) => {
       }
 
       return (
-        <div className="pagination-div">
-          <div className="d-flex">
-            <div className="changePrevPage-div"
+        <div className={styles.pagination_div}>
+          <div className={styles.d_flex}>
+            <div className={styles.changePrevPage_div}
                  onClick={() => changePreviousPage()}
             >Previous</div>
             {arr.map(x => <div key={x} className={ page === x ? 
-                                       `${border_tbr} ${hover} ${bg_light}` 
+                                       `${styles.border_tbr} ${styles.hover} ${styles.bg_light}` 
                                        : 
-                                       `${border_tbr} ${hover}`}
+                                       `${styles.border_tbr} ${styles.hover}`}
                                        onClick={() => changeCustomPage(x)}
             >{x}</div>)}
-            <div className={`${nextPage} ${hover}`}
+            <div className={`${styles.nextPage} ${styles.hover}`}
                   onClick={() => changeNextPage(arr)}  
             >Next</div>
           </div>
