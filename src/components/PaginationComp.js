@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "../App.css";
+import './App.css';
 
 const PaginationComp = ({page, commentsCount, turnPage}) => {
   function doPagination() {
@@ -31,12 +31,12 @@ const PaginationComp = ({page, commentsCount, turnPage}) => {
                  onClick={() => changePreviousPage()}
             >Previous</div>
             {arr.map(x => <div key={x} className={ page === x ? 
-                                       `${styles.border-tbr} ${styles.hover} ${styles.bg-light}` 
+                                       `${border_tbr} ${hover} ${bg_light}` 
                                        : 
-                                       `${styles.border-tbr} ${styles.hover}`}
+                                       `${border_tbr} ${hover}`}
                                        onClick={() => changeCustomPage(x)}
             >{x}</div>)}
-            <div className={`${styles.nextPage} ${styles.hover}`}
+            <div className={`${nextPage} ${hover}`}
                   onClick={() => changeNextPage(arr)}  
             >Next</div>
           </div>

@@ -1,8 +1,10 @@
 import React from 'react';
 
-const TitleComp = () => {
+const TitleComp = ({title}) => {
   return (
-    <div>TitleComp</div>
+    <div className="title">
+        {title}
+    </div>
   )
 }
 

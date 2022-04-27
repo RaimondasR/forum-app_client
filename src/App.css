@@ -186,7 +186,7 @@ button:hover {
   border-radius: 5px 0 0 5px;
 }
 
-.border-tbr {
+.border_tbr {
   border-top: 1px solid lightblue;
   border-bottom: 1px solid lightblue;
   border-right: 1px solid lightblue;
@@ -203,11 +203,18 @@ button:hover {
   border-radius: 0 5px 5px 0;
 }
 
+.title {
+  background-color: darkslategrey;
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 5px 5px 0 0;
+}
 
 /* COLORS */
+.bg_light { background-color: rgb(241, 235, 236); }
 .bc-orange {  background-color: orange; }
 .bc-pink {  background-color: pink; }
-.bg-light { background-color: rgb(241, 235, 236); }
 .c-blue {  color: blue; }
 .c-bordo {  color: rgba(121, 18, 65, 0.877); }
 .c-cyan {  color: cyan; }
